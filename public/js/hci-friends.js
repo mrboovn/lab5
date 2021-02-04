@@ -10,6 +10,16 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	$("h3.friend-name").click(nameClick);
+}
+
+function nameClick(e) {
+	e.preventDefault();
+	var containText = $(this).closest(".friend");
+	var text = containText.find(".friend-name");
+	console.log(text.text())
+	$(text).replaceWith(`<h3 class='friend-name'> ${anagrammedName(text.text())} </h3>`);
 }
 
 function anagrammedName(name) {
